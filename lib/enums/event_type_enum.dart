@@ -10,4 +10,18 @@ enum EventType {
 
   final String value;
   const EventType(this.value);
+
+  /// Método para parsear valores strings a EventType
+  ///
+  /// Args:
+  /// - `value` (String): tipo de evento escrito como string.
+  ///
+  /// Returns:
+  /// - `EventType`
+  static EventType parseEventType(String value) {
+    return EventType.values.firstWhere(
+      (e) => e.value == value,
+      orElse: () => throw FormatException('Invalid EventType: $value'),
+    );
+  }
 }

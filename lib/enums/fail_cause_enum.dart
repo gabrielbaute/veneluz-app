@@ -14,4 +14,18 @@ enum FailCause {
 
   final String value;
   const FailCause(this.value);
+
+  /// Método para parsear valores strings a FailCause
+  ///
+  /// Args:
+  /// - `value` (String): tipo de causa de falla escrito como string.
+  ///
+  /// Returns:
+  /// - `FailCause`
+  static FailCause parseFailCause(String value) {
+    return FailCause.values.firstWhere(
+      (e) => e.value == value,
+      orElse: () => throw FormatException('Invalid FailCause: $value'),
+    );
+  }
 }
