@@ -1,5 +1,5 @@
 name: veneluz_app
-description: "A new Flutter project."
+description: "A android client for Veneluz server"
 publish_to: 'none'
 version: 0.1.0+1
 
