@@ -84,6 +84,27 @@ class ApiClient {
     );
   }
 
+  /// Realiza una petición POST genérica.
+  ///
+  /// [endpoint] es la ruta relativa definida en [ApiEndpoints].
+  /// [queryParameters] mapa de parámetros URL.
+  ///
+  /// Retorna un [dynamic] (habitualmente Map[String, dynamic] o List[dynamic]).
+  Future<dynamic> post(
+    String endpoint, {
+    Map<String, dynamic>? queryParameters,
+  }) async {
+    try {
+      final response = await _dio.post(
+        endpoint,
+        queryParameters: queryParameters,
+      );
+      return _validateAndParse(response);
+    } on DioException catch (e) {
+      throw _handleDioError(e);
+    }
+  }
+
   /// Procesa las excepciones de Dio y las unifica en un [ApiException].
   ApiException _handleDioError(DioException error) {
     String message;
