@@ -27,6 +27,20 @@ class ElectricEventResponse {
     required this.failCause,
   });
 
+  /// Convierte un diccionario/map de strings desde la API en un ElectricEventResponse.
+  factory ElectricEventResponse.fromJson(Map<String, dynamic> json) {
+    return ElectricEventResponse(
+      id: json['id'] as String,
+      startTimestamp: DateTime.parse(json['startTimestamp'] as String),
+      endTimestamp: json['end_timestamp'] != null
+          ? DateTime.parse(json['end_timestamp'] as String)
+          : null,
+      location: json['location'] as String,
+      evenType: EventType.parseEventType(json['event_type'] as String),
+      failCause: FailCause.parseFailCause(json['fail_cause'] as String),
+    );
+  }
+
   /// Convierte el modelo en una respuesta json serializable
   Map<String, dynamic> toJson() {
     return {
