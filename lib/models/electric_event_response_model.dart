@@ -31,7 +31,7 @@ class ElectricEventResponse {
   factory ElectricEventResponse.fromJson(Map<String, dynamic> json) {
     return ElectricEventResponse(
       id: json['id'] as String,
-      startTimestamp: DateTime.parse(json['startTimestamp'] as String),
+      startTimestamp: DateTime.parse(json['start_timestamp'] as String),
       endTimestamp: json['end_timestamp'] != null
           ? DateTime.parse(json['end_timestamp'] as String)
           : null,
