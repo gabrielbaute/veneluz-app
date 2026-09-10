@@ -45,8 +45,8 @@ class ElectricEventResponse {
   Map<String, dynamic> toJson() {
     return {
       'id': id,
-      'start_timestamp': startTimestamp,
-      'end_timestamp': endTimestamp,
+      'start_timestamp': startTimestamp.toIso8601String(),
+      'end_timestamp': endTimestamp?..toIso8601String(),
       'location': location,
       'event_type': evenType,
       'fail_cause': failCause,
