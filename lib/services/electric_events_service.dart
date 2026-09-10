@@ -58,13 +58,8 @@ class ElectricEventsService {
   /// Returns:
   /// - `ElectricEventResponse`: Esquema de respuesta del evento eléctrico.
   Future<ElectricEventResponse?> getEventByID({required String id}) async {
-    final responseData = await _apiClient.get(
-      ApiEndpoints.getEvent,
-      queryParameters: {'event_id': id},
-    );
-    if (responseData.isEmpty) {
-      return null;
-    }
+    final responseData = await _apiClient.get('${ApiEndpoints.getEvent}/$id');
+    if (responseData == null) return null;
     return ElectricEventResponse.fromJson(responseData);
   }
 
