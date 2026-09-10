@@ -43,12 +43,10 @@ class ElectricEventsService {
     required ElectricEventUpdate eventData,
   }) async {
     final responseData = await _apiClient.put(
-      ApiEndpoints.updateEvent,
-      queryParameters: {'event_id ': id},
+      '${ApiEndpoints.updateEvent}/$id',
+      data: eventData.toJson(),
     );
-    if (responseData.isEmpty) {
-      return null;
-    }
+    if (responseData == null) return null;
     return ElectricEventResponse.fromJson(responseData);
   }
 
