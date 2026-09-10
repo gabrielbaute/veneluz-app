@@ -30,8 +30,8 @@ class ElectricEventUpdate {
       'start_timestamp': startTimestamp,
       'end_timestamp': endTimestamp,
       'location': location,
-      'event_type': evenType,
-      'fail_cause': failCause,
+      'event_type': evenType?.value,
+      'fail_cause': failCause?.value,
     };
   }
 }

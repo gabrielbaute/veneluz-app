@@ -46,10 +46,10 @@ class ElectricEventResponse {
     return {
       'id': id,
       'start_timestamp': startTimestamp.toIso8601String(),
-      'end_timestamp': endTimestamp?..toIso8601String(),
+      'end_timestamp': endTimestamp?.toIso8601String(),
       'location': location,
-      'event_type': evenType,
-      'fail_cause': failCause,
+      'event_type': evenType.value,
+      'fail_cause': failCause.value,
     };
   }
 }
