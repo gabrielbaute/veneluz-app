@@ -79,7 +79,7 @@ class ElectricEventsService {
   ///
   /// Returns:
   /// - `ElectricEventListResponse`: Esquema de respuesta en lista con el conteo de registros y una lsita de `ElectricEventResponse`.
-  Future<ElectricEventListResponse> getHistoryBcv({
+  Future<ElectricEventListResponse> getHistoryEvents({
     required DateTime startDate,
     required DateTime endDate,
     int skip = 0,
