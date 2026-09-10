@@ -61,7 +61,7 @@ class ElectricEventsService {
   Future<ElectricEventResponse?> getEventByID({required String id}) async {
     final responseData = await _apiClient.get(
       ApiEndpoints.getEvent,
-      queryParameters: {'event_id ': id},
+      queryParameters: {'event_id': id},
     );
     if (responseData.isEmpty) {
       return null;
@@ -89,7 +89,7 @@ class ElectricEventsService {
       ApiEndpoints.getHistoryEvents,
       queryParameters: {
         'start_date': startDate.toIso8601String(),
-        'end_date ': endDate.toIso8601String(),
+        'end_date': endDate.toIso8601String(),
         'skip': skip,
         'limit': limit,
       },
