@@ -22,10 +22,11 @@ class ElectricEventsService {
   Future<ElectricEventResponse?> registerElectricEvent({
     required ElectricEventCreate eventData,
   }) async {
-    final responseData = await _apiClient.post(ApiEndpoints.registerEvent);
-    if (responseData.isEmpty) {
-      return null;
-    }
+    final responseData = await _apiClient.post(
+      ApiEndpoints.registerEvent,
+      data: eventData.toJson(),
+    );
+    if (responseData == null) return null;
     return ElectricEventResponse.fromJson(responseData);
   }
 
