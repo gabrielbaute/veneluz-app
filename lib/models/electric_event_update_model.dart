@@ -6,20 +6,23 @@ import 'package:veneluz_app/enums/fail_cause_enum.dart';
 /// Attributes:
 /// - `startTimestamp` (DateTime): Marca de tiempo de inicio del evento.
 /// - `endTimestamp` (DateTime): Marca de tiempo de finalización del evento.
-/// - `location` (String): Coordenadas desde las que se registró el evento.
+/// - `latitude` (double): Latitud de la posición desde la que se emitió el registro de evento.
+/// - `longitude` (double): Longitud  de la posición desde la que se emitió el registro de evento.
 /// - `evenType` (EventType): Tipo de evento, corte o fluctuación.
 /// - `failCause` (FailCause): Tipo de causa de la falla/corte.
 class ElectricEventUpdate {
   final DateTime? startTimestamp;
   final DateTime? endTimestamp;
-  final String? location;
+  final double? latitude;
+  final double? longitude;
   final EventType? evenType;
   final FailCause? failCause;
 
   ElectricEventUpdate({
     this.startTimestamp,
     this.endTimestamp,
-    this.location,
+    this.latitude,
+    this.longitude,
     this.evenType,
     this.failCause,
   });
@@ -34,8 +37,11 @@ class ElectricEventUpdate {
     if (endTimestamp != null) {
       data['end_timestamp'] = endTimestamp!.toIso8601String();
     }
-    if (location != null) {
-      data['location'] = location;
+    if (latitude != null) {
+      data['latitude'] = latitude;
+    }
+    if (longitude != null) {
+      data['longitude'] = longitude;
     }
     if (evenType != null) {
       data['event_type'] = evenType!.value;
