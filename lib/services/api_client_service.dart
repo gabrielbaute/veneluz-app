@@ -56,32 +56,19 @@ class ApiClient {
   /// Retorna un [dynamic] (habitualmente Map[String, dynamic] o List[dynamic]).
   Future<dynamic> put(
     String endpoint, {
+    dynamic data,
     Map<String, dynamic>? queryParameters,
   }) async {
     try {
       final response = await _dio.put(
         endpoint,
+        data: data,
         queryParameters: queryParameters,
       );
       return _validateAndParse(response);
     } on DioException catch (e) {
       throw _handleDioError(e);
     }
-  }
-
-  /// Valida el código de estado HTTP y retorna los datos crudos.
-  dynamic _validateAndParse(Response response) {
-    final statusCode = response.statusCode ?? 500;
-
-    if (statusCode >= 200 && statusCode < 300) {
-      return response.data;
-    }
-
-    throw ApiException(
-      message: 'Error en la respuesta del servidor (${response.statusMessage})',
-      statusCode: statusCode,
-      body: response.data?.toString(),
-    );
   }
 
   /// Realiza una petición POST genérica.
@@ -106,6 +93,21 @@ class ApiClient {
     } on DioException catch (e) {
       throw _handleDioError(e);
     }
+  }
+
+  /// Valida el código de estado HTTP y retorna los datos crudos.
+  dynamic _validateAndParse(Response response) {
+    final statusCode = response.statusCode ?? 500;
+
+    if (statusCode >= 200 && statusCode < 300) {
+      return response.data;
+    }
+
+    throw ApiException(
+      message: 'Error en la respuesta del servidor (${response.statusMessage})',
+      statusCode: statusCode,
+      body: response.data?.toString(),
+    );
   }
 
   /// Procesa las excepciones de Dio y las unifica en un [ApiException].
