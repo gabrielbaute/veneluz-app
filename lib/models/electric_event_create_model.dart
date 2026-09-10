@@ -7,14 +7,16 @@ import 'package:veneluz_app/enums/fail_cause_enum.dart';
 /// - `id` (String): ID de registro de la falla/evento eléctrico.
 /// - `startTimestamp` (DateTime): Marca de tiempo de inicio del evento.
 /// - `endTimestamp` (DateTime): Marca de tiempo de finalización del evento.
-/// - `location` (String): Coordenadas desde las que se registró el evento.
+/// - `latitude` (double): Latitud de la posición desde la que se emitió el registro de evento.
+/// - `longitude` (double): Longitud  de la posición desde la que se emitió el registro de evento.
 /// - `evenType` (EventType): Tipo de evento, corte o fluctuación.
 /// - `failCause` (FailCause): Tipo de causa de la falla/corte.
 class ElectricEventCreate {
   final String id;
   final DateTime startTimestamp;
   final DateTime? endTimestamp;
-  final String location;
+  final double latitude;
+  final double longitude;
   final EventType evenType;
   final FailCause failCause;
 
@@ -22,7 +24,8 @@ class ElectricEventCreate {
     required this.id,
     required this.startTimestamp,
     this.endTimestamp,
-    required this.location,
+    required this.latitude,
+    required this.longitude,
     required this.evenType,
     required this.failCause,
   });
@@ -33,7 +36,8 @@ class ElectricEventCreate {
       'id': id,
       'start_timestamp': startTimestamp,
       'end_timestamp': endTimestamp,
-      'location': location,
+      'latitude': latitude,
+      'longitude': longitude,
       'event_type': evenType.value,
       'fail_cause': failCause.value,
     };
