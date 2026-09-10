@@ -26,12 +26,24 @@ class ElectricEventUpdate {
 
   /// Convierte el modelo en una respuesta json serializable
   Map<String, dynamic> toJson() {
-    return {
-      'start_timestamp': startTimestamp,
-      'end_timestamp': endTimestamp,
-      'location': location,
-      'event_type': evenType?.value,
-      'fail_cause': failCause?.value,
-    };
+    final Map<String, dynamic> data = {};
+
+    if (startTimestamp != null) {
+      data['start_timestamp'] = startTimestamp!.toIso8601String();
+    }
+    if (endTimestamp != null) {
+      data['end_timestamp'] = endTimestamp!.toIso8601String();
+    }
+    if (location != null) {
+      data['location'] = location;
+    }
+    if (evenType != null) {
+      data['event_type'] = evenType!.value;
+    }
+    if (failCause != null) {
+      data['fail_cause'] = failCause!.value;
+    }
+
+    return data;
   }
 }
