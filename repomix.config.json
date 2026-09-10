@@ -10,7 +10,12 @@
     "showLineNumbers": false,
     "copyToClipboard": false,
     "includeEmptyDirectories": false,
-    "parsableStyle": true
+    "parsableStyle": true,
+    "git": {
+          "includeDiffs": true,
+          "includeLogs": true,
+          "includeLogsCount": 50
+        }
   },
   "include": [],
   "ignore": {
