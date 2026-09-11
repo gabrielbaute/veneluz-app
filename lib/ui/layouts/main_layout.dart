@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../components//custom_app_bar.dart';
-import '../components//custom_bottom_bar.dart';
+import '../components/custom_app_bar.dart';
+import '../components/custom_bottom_bar.dart';
 
 /// Layout estructural principal que encapsula la AppBar, la BottomBar y el contenido central.
 ///
