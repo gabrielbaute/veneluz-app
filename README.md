@@ -12,10 +12,13 @@ En este repositorio estamos desarrollando, paso a paso, el cliente en android pa
 - [x] Piovider de la gestión de themes
 - [x] Componentes básicos: AppBar, BottomBar, RefreshButton, ReportButton
 
-## TODO
+## En proceso
 - [ ] Vistas de reportes
 - [ ] Vista de histórico
 - [ ] Mecanismo de reporte
-- [ ] Mecanismo de conteo y actualización de un reporte
+
+## TODO
+- [ ] Mecanismo de conteo
+- [ ] Mecanismo de actualización de un reporte
 
 A medida que avancemos en el desarrollo, iremos agregando lo que se va a construir y qué otros detalles faltan.
