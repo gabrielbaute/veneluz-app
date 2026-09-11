@@ -11,7 +11,7 @@ import '../models/electric_event_update_model.dart';
 import '../services/electric_events_service.dart';
 import '../services/location_service.dart';
 
-/// Controlador de estado de la aplicación para gestionar la creación, actualización y consulta de eventos eléctricos.
+/// Provider de estado de la aplicación para gestionar la creación, actualización y consulta de eventos eléctricos.
 ///
 /// Attributes:
 /// - `_electricEventsService` (ElectricEventsService): Servicio de consulta y registro de eventos eléctricos.
