@@ -11,8 +11,16 @@ import '../models/electric_event_update_model.dart';
 import '../services/electric_events_service.dart';
 import '../services/location_service.dart';
 
-/// Controlador de estado de la aplicación para gestionar la creación,
-/// actualización y consulta de eventos eléctricos.
+/// Controlador de estado de la aplicación para gestionar la creación, actualización y consulta de eventos eléctricos.
+///
+/// Attributes:
+/// - `_electricEventsService` (ElectricEventsService): Servicio de consulta y registro de eventos eléctricos.
+/// - `_locationService` (LocationService): Servicio interno para proveer la ubicación del dispositivo en el momento del registro de un evento eléctrico.
+/// - `_uuid` (const): Identificador del evento eléctrico registrado en la app.
+/// - `_activeEvent` (ElectricEventResponse?): Contenedor del registro de un evento eléctrico generado en la app.
+/// - `_eventsHistory` (ElectricEventListResponse): Contenedor de consulta de histórico de eventos eléctricos.
+/// - `_isLoading` (bool): Estado que indica si la carga de históricos está en proceso.
+/// - `_errorMessage` (String?): Mensaje de error en caso de fallo en la petición.
 class ElectricEventProvider extends ChangeNotifier {
   final ElectricEventsService _electricEventsService;
   final LocationService _locationService;
